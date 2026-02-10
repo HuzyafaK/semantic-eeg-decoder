@@ -1,0 +1,26 @@
+Raw EEG (122 channels × 1651 samples)
+           │
+    preprocessing
+    (filter, downsample if used, channel drop,
+     global normalization, artifact handling)
+           │
+  ┌─────────────────────────────┐
+  │       Neural Encoder        │   <-- CNN stack → time projection → positional enc →
+  │  (Conv1D layers + Transformer)   (mean pooling → projection → L2 norm)
+  └─────────────────────────────┘
+           │
+      eeg_embedding (512-D)
+           │
+  ┌────────┴────────┐
+  │                 │
+  ▼                 ▼
+Text Prototype Bank   SemanticPrefix Adapter
+(precomputed BERT-   (MLP) maps eeg_embedding → LLM prefix tokens
+ based projections)  (frozen LLM used for generation)
+  │                 │
+  │                 ▼
+  │           Frozen LLM (Qwen or similar)
+  │                 │
+  └─────────────┬───┘
+                ▼
+           Retrieval & Generation outputs
