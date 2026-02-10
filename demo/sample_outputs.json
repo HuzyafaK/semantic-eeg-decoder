@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "project": "ChiSCO-CLIP",
+    "organization": "Excelleve",
+    "description": "Public-safe sample outputs for demo and UI visualization. No raw EEG or model parameters included.",
+    "timestamp": "2026-02-10",
+    "notes": "These samples illustrate retrieval strength and semantic alignment, not exact quantitative metrics."
+  },
+  "samples": [
+    {
+      "sample_id": "demo_001",
+      "eeg_input": {
+        "source": "ChiSCO",
+        "channels_used": 122,
+        "timesteps": 1651,
+        "subject_seen": true
+      },
+      "retrieval": {
+        "top_k": 5,
+        "retrieved_texts": [
+          "Please tell me your name.",
+          "May I know who I am speaking with?",
+          "Could you introduce yourself?",
+          "Can you provide your contact information?",
+          "Who am I talking to?"
+        ],
+        "semantic_confidence": "high"
+      },
+      "generation": {
+        "generated_text": "Could you please tell me your name so I know who I am speaking with?",
+        "semantic_alignment": "high",
+        "notes": "Intent correctly identified as a request for personal identification."
+      }
+    },
+    {
+      "sample_id": "demo_002",
+      "eeg_input": {
+        "source": "ChiSCO",
+        "channels_used": 122,
+        "timesteps": 1651,
+        "subject_seen": true
+      },
+      "retrieval": {
+        "top_k": 5,
+        "retrieved_texts": [
+          "I want a more challenging job.",
+          "I am looking for career growth.",
+          "I feel underutilized at work.",
+          "I want new responsibilities.",
+          "I am thinking about changing roles."
+        ],
+        "semantic_confidence": "high"
+      },
+      "generation": {
+        "generated_text": "I am looking for a role that challenges me and allows me to grow professionally.",
+        "semantic_alignment": "high",
+        "notes": "Abstract concept of ambition and career growth preserved."
+      }
+    },
+    {
+      "sample_id": "demo_003",
+      "eeg_input": {
+        "source": "ChiSCO",
+        "channels_used": 122,
+        "timesteps": 1651,
+        "subject_seen": false
+      },
+      "retrieval": {
+        "top_k": 5,
+        "retrieved_texts": [
+          "Let’s eat something good.",
+          "I am hungry.",
+          "Shall we get dinner?",
+          "I want food.",
+          "Let’s go out to eat."
+        ],
+        "semantic_confidence": "medium"
+      },
+      "generation": {
+        "generated_text": "Maybe we should get something to eat together.",
+        "semantic_alignment": "medium",
+        "notes": "Topic correctly identified (food), phrasing generalized."
+      }
+    }
+  ]
+}
